@@ -5,23 +5,9 @@ const mysql = require('mysql2');
 const app = express();
 const port = 5000 || process.env.PORT;
 
-require('dotenv').config();
+//require('dotenv').config();
 
-//WEB HOSTING FIREBASE
-const { initializeApp } = require("firebase/app");
- 
-const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: "kod-stocks.firebaseapp.com",
-  projectId: "kod-stocks",
-  storageBucket: "kod-stocks.firebasestorage.app",
-  messagingSenderId: "213549667529",
-  appId: "1:213549667529:web:342f1e8fa6ea2474966918",
-  measurementId: "G-T370PMS0N6"
-};
-
-// Initialize Firebase
-const app_fb = initializeApp(firebaseConfig);
+app.use(express.static(path.join(__dirname, "public")));
 
 
 // Middleware to parse form data
