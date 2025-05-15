@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
+const path = require("path");
 
 const app = express();
 const port = 5000 || process.env.PORT;
@@ -8,7 +9,6 @@ const port = 5000 || process.env.PORT;
 //require('dotenv').config();
 
 app.use(express.static(path.join(__dirname, "public")));
-
 
 // Middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
