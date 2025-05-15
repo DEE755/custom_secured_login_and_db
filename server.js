@@ -31,7 +31,7 @@ connection.connect((err) => {
 });
 
 // Route to handle form submission
-app.post('/submit', (req, res) => {
+app.post('/api/submit', (req, res) => {
     const { username, password } = req.body;
 
     // Insert data into the database
@@ -48,7 +48,7 @@ app.post('/submit', (req, res) => {
 });
 
 // Route to handle login requests
-app.get('/login_request', (req, res) => {
+app.get('/api/login_request', (req, res) => {
     //console.log('reached the endpoint /login_request');
     const { username, password } = req.query;
     //console.log('identifiers', username, password);
