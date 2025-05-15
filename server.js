@@ -8,7 +8,6 @@ const port = 5000 || process.env.PORT;
 
 //require('dotenv').config();
 
-app.use(express.static(path.join(__dirname, "public")));
 
 // Middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -80,6 +79,12 @@ app.get('/api/login_request', (req, res) => {
     });
 });
 
+app.use(express.static(path.join(__dirname, "public")));
+
+// Optional: fallback 404 for unknown API routes
+app.use('/api', (req, res) => {
+  res.status(404).json({ error: 'API route not found' });
+});
 
 
 // Start the server
